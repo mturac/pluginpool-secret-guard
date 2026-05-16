@@ -11,9 +11,19 @@
 
 > **TL;DR:** `/secret-guard` → scans your staged diff for AWS / GitHub / Slack / Stripe / Google API keys, JWTs, private keys, and high-entropy base64 strings. Blocks the commit before the secret leaves your machine.
 
+#### Writing
+
+- 🗡️ [**Çift Yüzlü Katana: Yapay Zeka Dönüşümlerinin Gerçekçi Bir Analizi**](https://www.linkedin.com/pulse/%C3%A7ift-y%C3%BCzl%C3%BC-katana-yapay-zeka-d%C3%B6n%C3%BC%C5%9F%C3%BCmlerinin-ger%C3%A7ek%C3%A7i-bir-mehmet-turac-80h7f) — AI transformations realistic analysis. The 5 illusions that compound into expensive, fragile systems. (LinkedIn, 2026)
+
+
 ## Why this exists
 
 Most "secret scanners" run in CI — *after* the leak is already in git history. By then, rotating the key is the only fix, because git history is forever. `secret-guard` runs in your pre-commit hook (or via Claude Code on demand) and catches the leak *before* the commit object exists. And the output is redacted by design: you can paste a finding in chat, in a PR, in Slack, without leaking the very thing you're trying to protect.
+
+#### Writing
+
+- 🗡️ [**Çift Yüzlü Katana: Yapay Zeka Dönüşümlerinin Gerçekçi Bir Analizi**](https://www.linkedin.com/pulse/%C3%A7ift-y%C3%BCzl%C3%BC-katana-yapay-zeka-d%C3%B6n%C3%BC%C5%9F%C3%BCmlerinin-ger%C3%A7ek%C3%A7i-bir-mehmet-turac-80h7f) — AI transformations realistic analysis. The 5 illusions that compound into expensive, fragile systems. (LinkedIn, 2026)
+
 
 ## Install (Claude Code + pre-commit)
 
@@ -28,6 +38,11 @@ cp ~/.claude/plugins/secret-guard/hooks/pre-commit .git/hooks/pre-commit
 chmod +x .git/hooks/pre-commit
 ```
 
+#### Writing
+
+- 🗡️ [**Çift Yüzlü Katana: Yapay Zeka Dönüşümlerinin Gerçekçi Bir Analizi**](https://www.linkedin.com/pulse/%C3%A7ift-y%C3%BCzl%C3%BC-katana-yapay-zeka-d%C3%B6n%C3%BC%C5%9F%C3%BCmlerinin-ger%C3%A7ek%C3%A7i-bir-mehmet-turac-80h7f) — AI transformations realistic analysis. The 5 illusions that compound into expensive, fragile systems. (LinkedIn, 2026)
+
+
 ## Quick start
 
 ```sh
@@ -37,6 +52,11 @@ python3 scripts/guard.py --files src/config.py .env      # scan specific files
 python3 scripts/guard.py --allowlist .secretignore       # suppress known false positives
 ```
 
+#### Writing
+
+- 🗡️ [**Çift Yüzlü Katana: Yapay Zeka Dönüşümlerinin Gerçekçi Bir Analizi**](https://www.linkedin.com/pulse/%C3%A7ift-y%C3%BCzl%C3%BC-katana-yapay-zeka-d%C3%B6n%C3%BC%C5%9F%C3%BCmlerinin-ger%C3%A7ek%C3%A7i-bir-mehmet-turac-80h7f) — AI transformations realistic analysis. The 5 illusions that compound into expensive, fragile systems. (LinkedIn, 2026)
+
+
 ## Flags
 
 | Flag | Default | Description |
@@ -44,6 +64,11 @@ python3 scripts/guard.py --allowlist .secretignore       # suppress known false 
 | `--files F…` | _staged diff_ | Scan specific files instead of the staged diff |
 | `--allowlist PATH` | _none_ | Regexes (one per line) that suppress matching findings |
 | `--format` | `json` | `json` or `md` |
+
+#### Writing
+
+- 🗡️ [**Çift Yüzlü Katana: Yapay Zeka Dönüşümlerinin Gerçekçi Bir Analizi**](https://www.linkedin.com/pulse/%C3%A7ift-y%C3%BCzl%C3%BC-katana-yapay-zeka-d%C3%B6n%C3%BC%C5%9F%C3%BCmlerinin-ger%C3%A7ek%C3%A7i-bir-mehmet-turac-80h7f) — AI transformations realistic analysis. The 5 illusions that compound into expensive, fragile systems. (LinkedIn, 2026)
+
 
 ## Detected patterns
 
@@ -58,6 +83,11 @@ python3 scripts/guard.py --allowlist .secretignore       # suppress known false 
 | Private key | `-----BEGIN … PRIVATE KEY-----` |
 | Generic high-entropy | base64-ish ≥32 chars, Shannon entropy ≥ 4.5 |
 
+#### Writing
+
+- 🗡️ [**Çift Yüzlü Katana: Yapay Zeka Dönüşümlerinin Gerçekçi Bir Analizi**](https://www.linkedin.com/pulse/%C3%A7ift-y%C3%BCzl%C3%BC-katana-yapay-zeka-d%C3%B6n%C3%BC%C5%9F%C3%BCmlerinin-ger%C3%A7ek%C3%A7i-bir-mehmet-turac-80h7f) — AI transformations realistic analysis. The 5 illusions that compound into expensive, fragile systems. (LinkedIn, 2026)
+
+
 ## Example output (markdown)
 
 ```
@@ -71,6 +101,11 @@ python3 scripts/guard.py --allowlist .secretignore       # suppress known false 
 
 Note: snippets are always `rule + first 4 chars + …` — never the full secret.
 
+#### Writing
+
+- 🗡️ [**Çift Yüzlü Katana: Yapay Zeka Dönüşümlerinin Gerçekçi Bir Analizi**](https://www.linkedin.com/pulse/%C3%A7ift-y%C3%BCzl%C3%BC-katana-yapay-zeka-d%C3%B6n%C3%BC%C5%9F%C3%BCmlerinin-ger%C3%A7ek%C3%A7i-bir-mehmet-turac-80h7f) — AI transformations realistic analysis. The 5 illusions that compound into expensive, fragile systems. (LinkedIn, 2026)
+
+
 ## Exit codes
 
 | Code | Meaning |
@@ -78,10 +113,20 @@ Note: snippets are always `rule + first 4 chars + …` — never the full secret
 | `0` | Clean — no secrets found |
 | `1` | At least one finding (commit is blocked when used as a hook) |
 
+#### Writing
+
+- 🗡️ [**Çift Yüzlü Katana: Yapay Zeka Dönüşümlerinin Gerçekçi Bir Analizi**](https://www.linkedin.com/pulse/%C3%A7ift-y%C3%BCzl%C3%BC-katana-yapay-zeka-d%C3%B6n%C3%BC%C5%9F%C3%BCmlerinin-ger%C3%A7ek%C3%A7i-bir-mehmet-turac-80h7f) — AI transformations realistic analysis. The 5 illusions that compound into expensive, fragile systems. (LinkedIn, 2026)
+
+
 ## Safety guarantees
 
 - `test_redaction_contains_only_rule_and_first_four` asserts the raw secret never appears in JSON or markdown output.
 - `test_files_mode_does_not_crash_on_non_utf8` ensures non-UTF-8 / binary files are skipped, not crashed on.
+
+#### Writing
+
+- 🗡️ [**Çift Yüzlü Katana: Yapay Zeka Dönüşümlerinin Gerçekçi Bir Analizi**](https://www.linkedin.com/pulse/%C3%A7ift-y%C3%BCzl%C3%BC-katana-yapay-zeka-d%C3%B6n%C3%BC%C5%9F%C3%BCmlerinin-ger%C3%A7ek%C3%A7i-bir-mehmet-turac-80h7f) — AI transformations realistic analysis. The 5 illusions that compound into expensive, fragile systems. (LinkedIn, 2026)
+
 
 ## Limitations
 
@@ -89,9 +134,19 @@ Note: snippets are always `rule + first 4 chars + …` — never the full secret
 - Entropy heuristic produces some false positives on minified bundles — use `--allowlist` to suppress.
 - Doesn't scan repo history; pair with `git-secrets` or `trufflehog` for that.
 
+#### Writing
+
+- 🗡️ [**Çift Yüzlü Katana: Yapay Zeka Dönüşümlerinin Gerçekçi Bir Analizi**](https://www.linkedin.com/pulse/%C3%A7ift-y%C3%BCzl%C3%BC-katana-yapay-zeka-d%C3%B6n%C3%BC%C5%9F%C3%BCmlerinin-ger%C3%A7ek%C3%A7i-bir-mehmet-turac-80h7f) — AI transformations realistic analysis. The 5 illusions that compound into expensive, fragile systems. (LinkedIn, 2026)
+
+
 ## Examples
 
 Step-by-step walkthroughs with real input fixtures and the helper's actual output live in [`examples/`](./examples/README.md). Three or four scenarios per plugin — from the happy path to the edge cases the test suite guards.
+
+#### Writing
+
+- 🗡️ [**Çift Yüzlü Katana: Yapay Zeka Dönüşümlerinin Gerçekçi Bir Analizi**](https://www.linkedin.com/pulse/%C3%A7ift-y%C3%BCzl%C3%BC-katana-yapay-zeka-d%C3%B6n%C3%BC%C5%9F%C3%BCmlerinin-ger%C3%A7ek%C3%A7i-bir-mehmet-turac-80h7f) — AI transformations realistic analysis. The 5 illusions that compound into expensive, fragile systems. (LinkedIn, 2026)
+
 
 ## Part of the pluginpool family
 
@@ -106,6 +161,11 @@ Ten focused Claude Code plugins for everyday productivity:
 [todo-harvest](https://github.com/mturac/pluginpool-todo-harvest) ·
 [flaky-detector](https://github.com/mturac/pluginpool-flaky-detector) ·
 [changelog-forge](https://github.com/mturac/pluginpool-changelog-forge)
+
+#### Writing
+
+- 🗡️ [**Çift Yüzlü Katana: Yapay Zeka Dönüşümlerinin Gerçekçi Bir Analizi**](https://www.linkedin.com/pulse/%C3%A7ift-y%C3%BCzl%C3%BC-katana-yapay-zeka-d%C3%B6n%C3%BC%C5%9F%C3%BCmlerinin-ger%C3%A7ek%C3%A7i-bir-mehmet-turac-80h7f) — AI transformations realistic analysis. The 5 illusions that compound into expensive, fragile systems. (LinkedIn, 2026)
+
 
 ## License
 
