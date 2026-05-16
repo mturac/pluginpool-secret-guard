@@ -1,3 +1,5 @@
+![hero](./assets/hero.svg)
+
 # secret-guard
 
 **Block leaked API keys before they hit `origin`. Pattern + entropy. Redacted output.**
