@@ -87,6 +87,10 @@ Note: snippets are always `rule + first 4 chars + …` — never the full secret
 - Entropy heuristic produces some false positives on minified bundles — use `--allowlist` to suppress.
 - Doesn't scan repo history; pair with `git-secrets` or `trufflehog` for that.
 
+## Examples
+
+Step-by-step walkthroughs with real input fixtures and the helper's actual output live in [`examples/`](./examples/README.md). Three or four scenarios per plugin — from the happy path to the edge cases the test suite guards.
+
 ## Part of the pluginpool family
 
 Ten focused Claude Code plugins for everyday productivity:

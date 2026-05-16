@@ -10,3 +10,4 @@ build/
 *.egg-info/
 
 .gitdir/
+examples/leaked-config.py
